@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.18)
 project(tvm C CXX)
 
+
+find_package(CUDA QUIET)
+if(CUDA_FOUND)
+    message(STATUS "Found CUDA, version: ${CUDA_VERSION_STRING}")
+else()
+    message(STATUS "CUDA not found")
+endif()
+
 # Utility functions
 include(cmake/utils/Utils.cmake)
 include(cmake/utils/Summary.cmake)
